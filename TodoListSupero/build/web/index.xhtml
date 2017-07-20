@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Todo List Supero</title>
+        <h:outputStylesheet library="bootstrap/css" name="bootstrap.min.css"/>
+        <h:outputScript library="js" name="jquery.js"/>
+        <h:outputScript library="bootstrap/js" name="bootstrap.js"/>
+        <h:outputScript library="js" name="tasklist.js"/>
+    </h:head>
+    <h:body>
+        <div class="container-fluid">			
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <form style="float: right; padding-bottom: 15px; padding-top: 15px; margin-right: 15px;">
+                            <button type="button" class="btn btn-success btn-sm btnOpenModal">Adicionar</button>
+                        </form>
+                        <div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <table id="taskListTable" class="table table-responsive table-striped">
+                                    <thead>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Concluído</th>
+                                    <th>Título</th>
+                                    <th>Descrição</th>
+                                    <th>Criado em</th>
+                                    <th>Editado em</th>
+                                    <th>Ações</th>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Dados serão carregados via GET -->														
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>			
+                    </div>	
+                    <footer class="footer">
+                    </footer>
+
+                    <div class="modal fade" id="taskCrudModal" tabindex="-1" role="dialog" aria-labelledby="taskCrudModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title" id="taskCrudModalLabel">Tarefa</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="reserveForm">
+                                        <input type="hidden" class="taskIdField" value=""/>
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <div class="form-group">
+                                                    <label> Concluído</label>
+                                                    <div class="form-control">																												
+                                                        <input class="doneField" name="done" type="checkbox" value="false" />
+                                                    </div>										
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                    <label class="">Título</label>
+                                                    <input name="title" type="text" class="form-control titleField" placeholder="Título" value="" required="true"/>                                                    
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label class="">Descrição</label>									
+                                                    <textarea name="description" placeholder="Descrição" class="form-control descriptionField" ></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" class="createdInField" value=""/>
+                                        <input type="hidden" class="updatedInField" value=""/>
+                                        <input type="hidden" class="doneDateField" value=""/>
+                                        
+                                    </form>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary btnModalSave">Salvar</button>
+                                    <button type="button" class="btn btn-primary btnModalUpdate">Atualizar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>			
+
+                    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title" id="confirmDeleteModalLabel">Exclusão de reserva</h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <input type="hidden" class="confirmDeleteById" value=""/>
+                                            <input type="hidden" class="confirmDeleteList" value=""/>									
+                                            <button class=" btn btn-danger btnConfirmDelete">Deseja realmente excluír esta reserva?</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">							
+                                </div>
+                            </div>
+                        </div>
+                    </div>			
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+
